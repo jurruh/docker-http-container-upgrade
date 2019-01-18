@@ -1,0 +1,14 @@
+{
+  "name": "docker-http-container-upgrade",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "author": "jurruh",
+  "license": "MIT",
+  "scripts":{
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "dockerode": "^2.5.8",
+    "express": "^4.16.4"
+  }
+}
