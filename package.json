@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "author": "jurruh",
   "license": "MIT",
-  "scripts":{
+  "scripts": {
     "start": "node src/index.js"
   },
   "dependencies": {

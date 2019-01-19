@@ -5,22 +5,32 @@ const docker = new Docker({ socketPath: '/var/run/docker.sock' });
 const app = express()
 
 app.get('/:name', async (req, res) => {
+  const { name } = req.params;
 
-  docker.listContainers(function (err, listedContainers) {
-    listedContainer = listedContainers.filter(c => c.Names.includes(`/${req.params.name}`))[0];
+  listedContainer = (await docker.listContainers()).filter(c => c.Names.includes(`/${name}`))[0];
 
-    if (!listedContainer) {
-      res.sendStatus(404);
-    }
+  if (!listedContainer) return res.sendStatus(404);
 
-    docker.pull(listedContainer.Image, () => {
-      let container = docker.getContainer(listedContainer.Id)
+  try {
+    await docker.pull(listedContainer.Image);
+  }catch(err){
+    console.log(err);
+  }
+  const container = docker.getContainer(listedContainer.Id);
+  const inspectedContainer = await container.inspect();
 
-      container.restart(); // FIXME: Currently not working because it does not update the image of the container
+  await container.stop();
+  await container.remove();
 
-      res.sendStatus(200);
-    });
-  });
-})
+  const config = inspectedContainer.Config;
+  config.HostConfig = inspectedContainer.HostConfig;
+  config.name = name;
+
+  const newContainer = await docker.createContainer(config);
+
+  await newContainer.start();
+
+  res.sendStatus(200);
+});
 
 app.listen(3000);
