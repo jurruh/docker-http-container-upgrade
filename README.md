@@ -12,4 +12,4 @@ curl localhost:3000/:containername
 ```
 
 ## :notebook: Notes
-Currently this is a hobby project the code does not have any tests and the HTTP requests do not require any type of authorization. I do not recommend to use this project in any kind of a production system, but feel free to build on top of this repo or fork it.
+Currently this is a hobby project the code does not have any tests and the HTTP requests do not require authorization. I do not recommend to use this project in a production system. But feel free to build on top of this repo or use it as an inspiration.
