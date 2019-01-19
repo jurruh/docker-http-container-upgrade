@@ -1,5 +1,5 @@
 # :whale2: Docker HTTP container upgrade
-This application can pull a new docker image and restart a running container with just a simple HTTP call.
+Pull a new docker image and restart a running container with just a simple HTTP call.
 
 ## :wrench: Usage
 At first we need to start the web server this can be done with a docker container:
