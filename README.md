@@ -2,7 +2,7 @@
 This application can pull a new docker image and restart a running container with just a simple HTTP call.
 
 ## :wrench: Usage
-At first we need to start the web server this can be done with a docker image:
+At first we need to start the web server this can be done with a docker container:
 ```bash
 docker run -v /var/run/docker.sock:/var/run/docker.sock -p 3000:3000 jurruh/http-container-upgrade
 ```
