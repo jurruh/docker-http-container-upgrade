@@ -1,4 +1,4 @@
-# :whale2: Docker HTTP container upgrade
+# :whale: Docker HTTP container upgrade
 Pull a new docker image and restart a running container with just a simple HTTP call.
 
 ## :rocket: Usage
@@ -12,4 +12,4 @@ curl localhost:3000/:containername
 ```
 
 ## :memo: Notes
-Currently this is a hobby project the code does not have any tests and the HTTP requests do not require authorization. I do not recommend to use this project in a production system. But feel free to build on top of this repo or use it as inspiration.
+Currently this is a hobby project. The code does not have any tests and the HTTP requests do not require any form of authorization. I do not recommend to use this project in a production system. But feel free to build on top of this repo or use it as inspiration.
